@@ -20,28 +20,34 @@ time.sleep(10)
 # find the login button
 login_button_class = "btn-standard.call-to-action"
 elem = driver.find_element_by_class_name(login_button_class)
-elem.click()
+if(elem!=None):
+    elem = driver.find_element_by_class_name(login_button_class)
+    elem.click()
 
 time.sleep(5)
 
 user_name = "zixuan.jia0616@gmail.com"
+em_elem = driver.find_element_by_id("email")
+if(em_elem != None):
+    print("find it")
+    input_un = driver.find_element_by_id("email")
+    input_pd = driver.find_element_by_id("password")
+    input_un.send_keys(user_name)
+    input_pd.send_keys(password)
 
-input_un = driver.find_element_by_id("email")
-input_pd = driver.find_element_by_id("password")
-input_un.send_keys(user_name)
-input_pd.send_keys(password)
-
-# login button
-sec_login = driver.find_element_by_id("btnLogin")
-sec_login.click()
+    # login button
+    sec_login = driver.find_element_by_id("btnLogin")
+    sec_login.click()
 
 
-# email verfication
-# do not need email verfication
-# email_send_code_btn = driver.find_element_by_id("btnSendCode")
-# email_send_code_btn.click()
+def silver_bit(driver):
+    transfer = driver.find_element_by_class("ut-tab-bar-item.icon-transfer")
+    transfer.click()
 
-driver.close()
+# silver_bit(driver)
+
+
+# driver.close()
 
 
 
